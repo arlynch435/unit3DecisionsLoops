@@ -7,17 +7,18 @@ public class SubstringMaker
         System.out.print("Please enter a string: ");
         String str=s.next();
         for (int i=0;
-             i<str.length();
+             i<=str.length();
              i++)
              {
-                 for (int r=0;
-                      r<str.length()-1;
-                      r++)
+                 int r=0;
+                 while (
+                      r<=str.length()-i
+                      )
                       {
                           System.out.println(str.substring(r,r+i));
+                          r++;
                         }
                 }
-        System.out.println(str);
     }
 
 }
