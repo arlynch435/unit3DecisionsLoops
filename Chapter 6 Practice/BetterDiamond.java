@@ -7,55 +7,44 @@ public class BetterDiamond
        Scanner s= new Scanner(System.in);
        int sideLength=s.nextInt();
        int diagonal=(sideLength*2)-1;
-       int i=0;
-       for(int height=1;
-           height<=diagonal;
-           height++)
+       int column=1;
+       while (column<=sideLength)
+       {
+           String star="";
+           int starCount=0;
+           while (starCount<(column*2)-1)
            {
-               String space= "";
-               for (int total=0;
-                    total<=height*2-1;
-                    total++)
-                    {
-                        space.concat(" ");
-                    }
+               star+="*";
+               starCount++;
             }
-       while (i<=sideLength)
-       {
-           String star= "*";
-           for (int r=0;
-                r<=(i*2)-1;
-                r++)
-                {
-                    if (r==(i*2)-1)
-                    {
-                        System.out.print("\n");
-                    }
-                    else
-                    {
-                      System.out.print(star);
-                    }
-                }
-           i++;
+           int spaceCount=0;
+           String space="";
+            while (spaceCount<(diagonal-starCount)/2)
+           {
+               space+=" ";
+               spaceCount++;
+            }
+           System.out.println(space+star);
+           column++;
         }
-        i=sideLength-1;
-        while (i>0)
+        while (column-sideLength<=sideLength)
        {
-           String star= "*";
-           for (int r=0;
-                r<=(i*2)-1;
-                r++)
-                {
-                    if (r==(i*2)-1)
-                    {
-                        System.out.print("\n");
-                    }
-                    else
-                    {
-                      System.out.print(star);
-                    }
-                }
-           i--;
+           String star="";
+           int starCount=0;
+           while (starCount<((column-sideLength)*2)-1)
+           {
+               star+="*";
+               starCount++;
+            }
+           int spaceCount=0;
+           String space="";
+            while (spaceCount<(diagonal-starCount)/2)
+           {
+               space+=" ";
+               spaceCount++;
+            }
+           System.out.println(space+star);
+           column++;
         }
     }
 
