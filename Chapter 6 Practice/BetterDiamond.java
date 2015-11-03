@@ -27,7 +27,7 @@ public class BetterDiamond
            System.out.println(space+star);
            column++;
         }
-        while (column-sideLength<=sideLength)
+        while (column>=0)
        {
            String star="";
            int starCount=0;
@@ -44,7 +44,7 @@ public class BetterDiamond
                spaceCount++;
             }
            System.out.println(space+star);
-           column++;
+           column--;
         }
     }
 
