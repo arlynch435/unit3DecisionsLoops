@@ -17,9 +17,9 @@ public class GameOfLife
     // the world comprised of the grid that displays the graphics for the game
     private ActorWorld world;
     
-    // the game board will have 5 rows and 5 columns
-    private final int ROWS = 5;
-    private final int COLS = 5;
+    // the game board will have 10 rows and 10 columns
+    private final int ROWS = 10;
+    private final int COLS = 10;
     
     /**
      * Default constructor for objects of class GameOfLife
@@ -52,10 +52,11 @@ public class GameOfLife
      */
     private void populateGame()
     {
-        // constants for the location of the three cells initially alive
-        final int X1 = 2, Y1 = 0;
-        final int X2 = 0, Y2 = 2;
-        final int X3 = 1, Y3 = 2;
+        // constants for the location of the four cells initially alive
+        final int X1 = 4, Y1 = 4;
+        final int X2 = 4, Y2 = 5;
+        final int X3 = 5, Y3 = 5;
+        final int X4 = 6, Y4 = 5;
 
         // the grid of Actors that maintains the state of the game
         //  (alive cells contains actors; dead cells do not)
@@ -73,6 +74,10 @@ public class GameOfLife
         Rock rock3 = new Rock();
         Location loc3 = new Location(Y3, X3);
         grid.put(loc3, rock3);
+        
+        Rock rock4 = new Rock();
+        Location loc4 = new Location(Y4, X4);
+        grid.put(loc4, rock4);
     }
 
     /**
