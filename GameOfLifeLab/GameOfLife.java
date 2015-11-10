@@ -1,6 +1,6 @@
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.ActorWorld;
-import info.gridworld.actor.Rock;
+import info.gridworld.actor.Critter;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
@@ -63,21 +63,21 @@ public class GameOfLife
         Grid<Actor> grid = world.getGrid();
         
         // create and add rocks (a type of Actor) to the three intial locations
-        Rock rock1 = new Rock();
+        Critter critter1 = new Critter();
         Location loc1 = new Location(Y1, X1);
-        grid.put(loc1, rock1);
+        grid.put(loc1, critter1);
         
-        Rock rock2 = new Rock();
+        Critter critter2 = new Critter();
         Location loc2 = new Location(Y2, X2);
-        grid.put(loc2, rock2);
+        grid.put(loc2, critter2);
         
-        Rock rock3 = new Rock();
+        Critter critter3 = new Critter();
         Location loc3 = new Location(Y3, X3);
-        grid.put(loc3, rock3);
+        grid.put(loc3, critter3);
         
-        Rock rock4 = new Rock();
+        Critter critter4 = new Critter();
         Location loc4 = new Location(Y4, X4);
-        grid.put(loc4, rock4);
+        grid.put(loc4, critter4);
     }
 
     /**
@@ -88,7 +88,7 @@ public class GameOfLife
      * @post    the world has been populated with a new grid containing the next generation
      * 
      */
-    private void createNextGeneration()
+    public void createNextGeneration()
     {
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
@@ -98,7 +98,38 @@ public class GameOfLife
         Grid<Actor> grid = world.getGrid();
         
         // insert magic here...
-        
+        for (int row=0;
+             row<this.ROWS;
+             row++)
+             {
+                 for(int column=0;
+                     column<this.COLS;
+                     column++)
+                     {
+                         Location locchecker=new Location (row,column);
+                         //if location has critter
+                         Critter trial= this.getActor(row,column);
+                         if (false)
+                         {
+                             //if critter does not have 2 or 3 neighbors
+                             if (trial.getActors().size()!=2 ||
+                                 trial.getActors().size()!=3)//if critter does not have 2 or 3 neighbors
+                             {
+                                 trial.removeSelfFromGrid();
+                                }
+                            }
+                         //if location has no critter
+                         else
+                         {
+                             //if has exactly 3 neighbors
+                             if(true) // 3 neighbors
+                             {
+                                 Critter baby=new Critter();
+                                 grid.put(locchecker,baby);
+                                }
+                            }
+                        }
+                }
     }
     
     /**

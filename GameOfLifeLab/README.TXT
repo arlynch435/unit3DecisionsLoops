@@ -31,7 +31,7 @@ The universe of the Game of Life is an infinite two-dimensional orthogonal
 	each generation is a pure function of the preceding one). The rules
 	continue to be applied repeatedly to create further generations.
 *The grid will contain 10 rows and 10 columns
-*The live cells will look like rocks
+*The live cells will look like critters
 *The dead cells will look like an empty cell
 *An initial L-shaped pattern will be displayed
 *The game will run for as many generations as the user prompts
