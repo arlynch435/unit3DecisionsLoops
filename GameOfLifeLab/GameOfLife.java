@@ -96,7 +96,7 @@ public class GameOfLife
         
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
-        
+        System.out.println(grid.toString());
         // insert magic here...
         for (int row=0;
              row<this.ROWS;
@@ -107,25 +107,30 @@ public class GameOfLife
                      column++)
                      {
                          Location locchecker=new Location (row,column);
-                         //if location has critter
-                         Critter trial= this.getActor(row,column);
-                         if (false)
+                         //if location has squat
+                         if (this.getActor(row,column)==null)
                          {
-                             //if critter does not have 2 or 3 neighbors
-                             if (trial.getActors().size()!=2 ||
-                                 trial.getActors().size()!=3)//if critter does not have 2 or 3 neighbors
+                             //if spot has exactly 3 neighbors
+                             Critter trial=new Critter();
+                             grid.put(locchecker,trial);
+                             int neighbors=grid.getNeighbors.size();
+                             if(neighbors!=3) // 3 neighbors
                              {
-                                 trial.removeSelfFromGrid();
+                                 grid.remove(locchecker);
+                                }
+                                else
+                                {
                                 }
                             }
-                         //if location has no critter
+                         //if location has critter
                          else
                          {
-                             //if has exactly 3 neighbors
-                             if(true) // 3 neighbors
+                             //if critter does not have 2 or 3 neighbors
+                             int filledNeighbors=8-grid.getEmptyAdjacentLocations(locchecker).size();
+                             if (filledNeighbors !=2 ||
+                                 filledNeighbors !=3)//if critter does not have 2 or 3 neighbors
                              {
-                                 Critter baby=new Critter();
-                                 grid.put(locchecker,baby);
+                                 grid.remove(locchecker);
                                 }
                             }
                         }
