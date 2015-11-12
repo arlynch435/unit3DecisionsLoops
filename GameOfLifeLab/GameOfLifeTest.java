@@ -110,6 +110,7 @@ public class GameOfLifeTest
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
         game.createNextGeneration();
+        game.createNextGeneration();
 
         for(int row = 0; row < ROWS; row++)
         {
