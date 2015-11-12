@@ -96,7 +96,7 @@ public class GameOfLife
         
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
-        System.out.println(grid.toString());
+        BoundedGrid<Actor> changeInGrid= new BoundedGrid<Actor>(ROWS, COLS);
         // insert magic here...
         for (int row=0;
              row<this.ROWS;
@@ -111,12 +111,11 @@ public class GameOfLife
                          if (this.getActor(row,column)==null)
                          {
                              //if spot has exactly 3 neighbors
-                             Critter trial=new Critter();
-                             grid.put(locchecker,trial);
-                             int neighbors=grid.getNeighbors.size();
-                             if(neighbors!=3) // 3 neighbors
+                             int neighbors=grid.getNeighbors(locchecker).size();
+                             if(neighbors==3) // 3 neighbors
                              {
-                                 grid.remove(locchecker);
+                                 Critter baby = new Critter();
+                                 changeInGrid.put(locchecker,baby);
                                 }
                                 else
                                 {
@@ -126,15 +125,16 @@ public class GameOfLife
                          else
                          {
                              //if critter does not have 2 or 3 neighbors
-                             int filledNeighbors=8-grid.getEmptyAdjacentLocations(locchecker).size();
-                             if (filledNeighbors !=2 ||
-                                 filledNeighbors !=3)//if critter does not have 2 or 3 neighbors
+                             int neighbors=grid.getNeighbors(locchecker).size();
+                             if (neighbors ==2 ||
+                                 neighbors ==3)//if critter does not have 2 or 3 neighbors
                              {
-                                 grid.remove(locchecker);
+                                 changeInGrid.put(locchecker,grid.get(locchecker));
                                 }
                             }
                         }
                 }
+        world.setGrid(changeInGrid);
     }
     
     /**
