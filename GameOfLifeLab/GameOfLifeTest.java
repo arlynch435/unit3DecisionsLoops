@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import info.gridworld.actor.Actor;
+import java.util.Scanner;
 
 /**
  * The test class GameOfLifeTest.
@@ -90,7 +91,7 @@ public class GameOfLifeTest
     public void testFinalState()
     {
         /* verify that the actual pattern matches the expected pattern after 3 generations 
-         *expected patter for final state
+         *expected patter for final state after 3 generations
          *  (X: alive; -: dead)
          * 
          *    0 1 2 3 4 5 6 7 8 9
@@ -109,8 +110,16 @@ public class GameOfLifeTest
         GameOfLife game = new GameOfLife();
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
-        game.createNextGeneration();
-        game.createNextGeneration();
+        Scanner s=new Scanner(System.in);
+        System.out.print("How many generations would you like to trial? ");
+        int generations=s.nextInt();
+        for (int i=0;
+             i<generations;
+             i++)
+             {
+                 game.createNextGeneration();
+                 Thread.sleep(500);
+                }
 
         for(int row = 0; row < ROWS; row++)
         {

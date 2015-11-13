@@ -135,6 +135,7 @@ public class GameOfLife
                         }
                 }
         world.setGrid(changeInGrid);
+        
     }
     
     /**
