@@ -60,7 +60,7 @@ public class GameOfLifeTest
          *  9 - - - - - - - - - -
          */
         
-        GameOfLife game = new GameOfLife();
+        GameOfLife game = new GameOfLife(0);
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
 
@@ -89,6 +89,7 @@ public class GameOfLifeTest
 
     @Test
     public void testFinalState()
+    throws InterruptedException
     {
         /* verify that the actual pattern matches the expected pattern after 3 generations 
          *expected patter for final state after 3 generations
@@ -107,19 +108,11 @@ public class GameOfLifeTest
          *  9 - - - - - - - - - -
          */
         
-        GameOfLife game = new GameOfLife();
+        GameOfLife game = new GameOfLife(0);
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
-        Scanner s=new Scanner(System.in);
-        System.out.print("How many generations would you like to trial? ");
-        int generations=s.nextInt();
-        for (int i=0;
-             i<generations;
-             i++)
-             {
-                 game.createNextGeneration();
-                 Thread.sleep(500);
-                }
+        game.createNextGeneration();
+        game.createNextGeneration();
 
         for(int row = 0; row < ROWS; row++)
         {

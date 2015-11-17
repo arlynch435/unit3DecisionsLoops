@@ -33,7 +33,7 @@ The universe of the Game of Life is an infinite two-dimensional orthogonal
 *The grid will contain 10 rows and 10 columns
 *The live cells will look like critters
 *The dead cells will look like an empty cell
-*An initial L-shaped pattern will be displayed
+*An initial shape will be determined by the user based on 3 original presets
 *The game will run for as many generations as the user prompts
 *There will be about half a second between each change in generations
 *The gride will NOT wrap around
