@@ -19,8 +19,8 @@ public class GameOfLife
     private ActorWorld world;
     
     // the game board will have 10 rows and 10 columns
-    private final int ROWS = 10;
-    private final int COLS = 10;
+    private final int ROWS = 11;
+    private final int COLS = 11;
     
     /**
      * Default constructor for objects of class GameOfLife
@@ -118,8 +118,8 @@ public class GameOfLife
     private void populateGameStillLife()
     {
         // constants for the location of the four cells initially alive
-        final int X1 = 4, Y1 = 4;
-        final int X2 = 4, Y2 = 5;
+        final int X1 = 4, Y1 = 5;
+        final int X2 = 4, Y2 = 4;
         final int X3 = 5, Y3 = 5;
         final int X4 = 5, Y4 = 4;
 
@@ -154,14 +154,14 @@ public class GameOfLife
     private void populateGameVertical()
     {
         // constants for the location of the four cells initially alive
-        final int X1 = 4;
+        final int X1 = 5;
 
         // the grid of Actors that maintains the state of the game
         //  (alive cells contains actors; dead cells do not)
         Grid<Actor> grid = world.getGrid();
         // create and add rocks (a type of Actor) to the three intial locations
         for (int i=0;
-            i<10;
+            i<this.ROWS;
             i++)
             {
                 Critter critter1=new Critter();

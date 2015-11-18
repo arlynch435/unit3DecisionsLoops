@@ -30,7 +30,7 @@ The universe of the Game of Life is an infinite two-dimensional orthogonal
 	moment at which this happens is sometimes called a tick (in other words,
 	each generation is a pure function of the preceding one). The rules
 	continue to be applied repeatedly to create further generations.
-*The grid will contain 10 rows and 10 columns
+*The grid will contain 11 rows and 11 columns
 *The live cells will look like critters
 *The dead cells will look like an empty cell
 *An initial shape will be determined by the user based on 3 original presets
